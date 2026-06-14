@@ -2,6 +2,10 @@
 
 一个基于“26 个金额箱子”规则的网页版 Deal / No Deal 风格游戏。玩家先保留一个箱子，再按 6、5、4、3、2、1... 的节奏打开其他箱子，面对银行家报价并做出 Deal 或 No Deal 的选择，最终可以保留或交换最后一个箱子。
 
+## 在线游玩
+
+[https://sunnyprodefi.github.io/26-boxes/](https://sunnyprodefi.github.io/26-boxes/)
+
 ## 快速开始
 
 ```bash
