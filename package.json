@@ -1,0 +1,17 @@
+{
+  "name": "26-boxes",
+  "version": "1.0.0",
+  "description": "A browser game based on 26 randomized money boxes and banker offers.",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/static-server.mjs",
+    "test": "node tests/game-engine.test.mjs"
+  },
+  "keywords": [
+    "game",
+    "deal-or-no-deal",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>26 Boxes</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="stage" aria-labelledby="game-title">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">Banker's Table</p>
+            <h1 id="game-title">26 Boxes</h1>
+          </div>
+          <button class="ghost-button" id="new-game-button" type="button">新局</button>
+        </header>
+
+        <section class="status-strip" aria-live="polite">
+          <div>
+            <span class="label">当前阶段</span>
+            <strong id="phase-title">选择你的箱子</strong>
+          </div>
+          <div>
+            <span class="label">本轮目标</span>
+            <strong id="round-target">先保留 1 个箱子</strong>
+          </div>
+          <div>
+            <span class="label">最高剩余</span>
+            <strong id="highest-remaining">¥0</strong>
+          </div>
+        </section>
+
+        <div class="main-layout">
+          <section class="board-panel" aria-label="26 个编号箱子">
+            <div class="case-grid" id="case-grid"></div>
+          </section>
+
+          <aside class="side-panel">
+            <section class="player-box">
+              <span class="label">你的箱子</span>
+              <strong id="player-box-label">未选择</strong>
+            </section>
+
+            <section class="offer-panel" id="offer-panel" hidden>
+              <span class="label">银行家报价</span>
+              <strong id="offer-value">¥0</strong>
+              <div class="decision-row">
+                <button class="deal-button" id="deal-button" type="button">Deal</button>
+                <button class="no-deal-button" id="no-deal-button" type="button">No Deal</button>
+              </div>
+            </section>
+
+            <section class="final-panel" id="final-panel" hidden>
+              <span class="label">最终选择</span>
+              <strong id="final-prompt">保留还是交换？</strong>
+              <div class="decision-row">
+                <button class="deal-button" id="keep-button" type="button">保留</button>
+                <button class="no-deal-button" id="swap-button" type="button">交换</button>
+              </div>
+            </section>
+
+            <section class="result-panel" id="result-panel" hidden>
+              <span class="label">游戏结果</span>
+              <strong id="result-title">获得奖金</strong>
+              <p id="result-detail"></p>
+            </section>
+
+            <section class="history-panel">
+              <div class="panel-heading">
+                <span class="label">报价记录</span>
+                <strong id="offer-count">0 次</strong>
+              </div>
+              <ol id="offer-history" class="offer-history"></ol>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <aside class="amount-board" aria-label="金额板">
+        <div class="amount-heading">
+          <span class="label">金额板</span>
+          <strong id="remaining-count">26 项</strong>
+        </div>
+        <div class="amount-list" id="amount-list"></div>
+      </aside>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
