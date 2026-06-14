@@ -14,7 +14,16 @@
             <p class="eyebrow">Banker's Table</p>
             <h1 id="game-title">26 Boxes</h1>
           </div>
-          <button class="ghost-button" id="new-game-button" type="button">新局</button>
+          <div class="top-actions">
+            <label class="sound-toggle">
+              <input id="sound-toggle" type="checkbox" checked />
+              <span class="switch-track" aria-hidden="true">
+                <span class="switch-thumb"></span>
+              </span>
+              <span>音效</span>
+            </label>
+            <button class="ghost-button" id="new-game-button" type="button">新局</button>
+          </div>
         </header>
 
         <section class="status-strip" aria-live="polite">
@@ -44,6 +53,11 @@
             </section>
 
             <section class="offer-panel" id="offer-panel" hidden>
+              <div class="call-visual" aria-hidden="true">
+                <span class="call-core"></span>
+                <span class="call-wave"></span>
+                <span class="call-wave delay"></span>
+              </div>
               <span class="label">银行家报价</span>
               <strong id="offer-value">¥0</strong>
               <div class="decision-row">
@@ -86,6 +100,8 @@
         <div class="amount-list" id="amount-list"></div>
       </aside>
     </main>
+
+    <div class="celebration-layer" id="celebration-layer" aria-hidden="true"></div>
 
     <script type="module" src="./src/app.js"></script>
   </body>
