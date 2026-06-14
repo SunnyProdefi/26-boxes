@@ -3,7 +3,9 @@ import { createServer } from "node:http";
 import { extname, join, normalize, resolve, sep } from "node:path";
 
 const root = resolve(process.cwd());
-const port = Number(process.env.PORT ?? 4173);
+const preferredPort = Number(process.env.PORT ?? 4173);
+const maxPortAttempts = 20;
+let activePort = preferredPort;
 
 const mimeTypes = new Map([
   [".html", "text/html; charset=utf-8"],
@@ -33,6 +35,22 @@ const server = createServer((request, response) => {
   createReadStream(filePath).pipe(response);
 });
 
-server.listen(port, () => {
-  console.log(`26 Boxes is running at http://localhost:${port}`);
+server.on("error", (error) => {
+  if (error.code === "EADDRINUSE" && activePort < preferredPort + maxPortAttempts) {
+    const nextPort = activePort + 1;
+    console.warn(`Port ${activePort} is already in use. Trying ${nextPort}...`);
+    activePort = nextPort;
+    server.close(() => {
+      server.listen(activePort);
+    });
+    return;
+  }
+
+  throw error;
 });
+
+server.on("listening", () => {
+  console.log(`26 Boxes is running at http://localhost:${activePort}`);
+});
+
+server.listen(activePort);
