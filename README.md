@@ -42,3 +42,4 @@ npm start
 
 - 游戏策划文档：[docs/game-design.md](docs/game-design.md)
 - 软件架构设计说明：[docs/software-architecture.md](docs/software-architecture.md)
+- Git 与 GitHub 版本管理：[docs/version-control.md](docs/version-control.md)
